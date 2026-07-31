@@ -2,16 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Quest Tool</title>
+<title>Quest Command Tool</title>
 </head>
 <body>
 
 <p>
-  <input id="argsInput" type="text" size="60" placeholder="args: -e, -orbs, -n vaporwave, help">
-  <p>Copy and paste output in your discord</p>
+  <input id="argsInput" type="text" size="60" placeholder="e.g. -e, -orbs, -n vaporwave, help">
   <button onclick="runCommand()">Run</button>
+  <button onclick="copyOutput(event)">Copy</button>
 </p>
-
+<p>Copy and paste output in your discord</p>
 <pre id="output">Enter arguments above and press Run.</pre>
 
 <script>
@@ -34,14 +34,41 @@ async function runCommand() {
   }
 }
 
+function copyOutput(e) {
+  const text = document.getElementById('output').textContent;
+  const btn = e.target;
+  const original = btn.textContent;
+
+  const done = () => {
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = original; }, 1200);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  document.body.removeChild(ta);
+  done();
+}
+
 async function handleCommand(args, message) {
 try {
 // Credits to aamiaa
 const questsURL =
-  "https://raw.githubusercontent.com/aamiaa/discord-api-diff/refs/heads/main/quests.json";
+  "https://raw.githubusercontent.com/du-cc/discord-quest-fetch/refs/heads/main/data/quests.json";
 
 const fallbackQuestURL =
-  "https://raw.githubusercontent.com/aamiaa/discord-api-diff/refs/heads/main/quests.json";
+  "https://raw.githubusercontent.com/du-cc/discord-quest-fetch/refs/heads/main/data/quests.json";
 
 const [res, fallbackRes] = await Promise.all([
   fetch(questsURL),
@@ -371,18 +398,18 @@ if(showAllStats){
     .map(([n, c]) => `- ${n}: **${c} quests**`)
     .join("\n");
 
-  return `Quest Statistics
-Total Quests: ${total}
-Active Quests: ${active}
+  return `<:Icon_Quests:1412859870570348727> **Quest Statistics**
+Total Quests: **${total}**
+Active Quests: **${active}**
 
-Rewards:
-Orbs: ${typeCounts[4]} quests (${totalOrbs} Orbs)
-Avatar Decorations: ${typeCounts[3]} quests (${uniqueRewards[3].size} Decorations)
-Nitro: ${typeCounts[5]} quests
-Code: ${typeCounts[1]} quests
-In-Game: ${typeCounts[2]} quests
+<:Icon_NewRelease:1295158548749353060> **Rewards:**
+Orbs: **${typeCounts[4]} quests** (**${totalOrbs} Orbs**)
+Avatar Decorations: **${typeCounts[3]} quests** (**${uniqueRewards[3].size} Decorations**)
+Nitro: **${typeCounts[5]} quests**
+Code: **${typeCounts[1]} quests**
+In-Game: **${typeCounts[2]} quests**
 
-Quest Type:
+<:Icon_Member_Activity_Privacy:1418299361493913620> **Quest Type:**
 ${taskLines}`;
 
 }
@@ -427,7 +454,7 @@ if(showOrbsOnly){
   }
 
   let statsText = [
-    "Orbs Quest Statistics:",
+    "<a:Orb_Shine:1355721669939040499> **Orbs Quest Statistics:**",
     `Total Quests: ${totalQuests}`,
     `Total Orbs: ${totalOrbs}`,
     "",
@@ -449,7 +476,7 @@ if(showOrbsOnly){
   }
 
   statsText.push(
-    `\nSome quests may have restrictions.`
+    `\n<:Box_Info:1279524989539975219> Some quests may have restrictions.`
   );
 
   return statsText.join("\n");
@@ -496,7 +523,7 @@ else if(input.startsWith("-d ")){
     input.slice(3).split("/").map(Number);
 
   if(!month || !year)
-    return "❌ Use format: -d MM/YY";
+    return "❌ Use format: `-d MM/YY`";
 
   filtered = data.filter(q => {
 
@@ -660,7 +687,7 @@ const totalCount = filtered.length;
 /* RESERVE */
 
 const footerPreview =
-  `( Page 000/000 • Showing 000-000 of ${totalCount} quests )`;
+  `*( Page 000/000 • Showing 000-000 of ${totalCount} quests )*`;
 
 const FOOTER_RESERVE =
   footerPreview.length + 20;
@@ -736,13 +763,38 @@ for(const q of filtered){
     );
 
   const regionFlags = {
-    AT: "AT", AU: "AU", BE: "BE", BR: "BR", CA: "CA",
-    CH: "CH", CN: "CN", CZ: "CZ", DE: "DE", DK: "DK",
-    ES: "ES", FI: "FI", FR: "FR", HK: "HK", HU: "HU",
-    IE: "IE", IN: "IN", IT: "IT", JP: "JP", KR: "KR",
-    MX: "MX", NL: "NL", NO: "NO", NZ: "NZ", PL: "PL",
-    PT: "PT", SE: "SE", SG: "SG", SK: "SK", UK: "UK",
-    US: "US", VN: "VN"
+    AT: ":flag_at:",
+    AU: ":flag_au:",
+    BE: ":flag_be:",
+    BR: ":flag_br:",
+    CA: ":flag_ca:",
+    CH: ":flag_ch:",
+    CN: ":flag_cn:",
+    CZ: ":flag_cz:",
+    DE: ":flag_de:",
+    DK: ":flag_dk:",
+    ES: ":flag_es:",
+    FI: ":flag_fi:",
+    FR: ":flag_fr:",
+    HK: ":flag_hk:",
+    HU: ":flag_hu:",
+    IE: ":flag_ie:",
+    IN: ":flag_in:",
+    IT: ":flag_it:",
+    JP: ":flag_jp:",
+    KR: ":flag_kr:",
+    MX: ":flag_mx:",
+    NL: ":flag_nl:",
+    NO: ":flag_no:",
+    NZ: ":flag_nz:",
+    PL: ":flag_pl:",
+    PT: ":flag_pt:",
+    SE: ":flag_se:",
+    SG: ":flag_sg:",
+    SK: ":flag_sk:",
+    UK: ":flag_gb:",
+    US: ":flag_us:",
+    VN: ":flag_vn:"
   };
 
 let regionsLines = [];
@@ -783,15 +835,15 @@ if (restriction?.is_global === false && normalizedRegions) {
   const questText =
 
     (isExpired
-      ? `- ${name}`
-      : `- ${name} (${link})`) +
+      ? `- **${name}**`
+      : `- [**${name}**](<${link}>)`) +
 
     `\nStarts: ${start} | Expires: ${end}` +
     `\nReward: ${reward}` +
     `\nTask(s): ${taskNames}` +
 
     (ageRestricted
-      ? `\nAge Restriction: yes`
+      ? `\nAge Restriction: 🔞`
       : "") +
 
     (regionsLines.length
@@ -799,7 +851,7 @@ if (restriction?.is_global === false && normalizedRegions) {
       : "") +
 
     (isLinked
-      ? `\nLinked: yes`
+      ? `\nLinked: 🔗`
       : "");
 
   /* PAGE SPLIT */
@@ -864,7 +916,7 @@ let finalText =
   pageItems.map(p => p.text).join("\n\n");
 
 finalText +=
-  `\n\n( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )`;
+  `\n\n*( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )*`;
 
 return finalText;
 
