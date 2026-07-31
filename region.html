@@ -8,10 +8,10 @@
 
 <p>
   <input id="argsInput" type="text" size="60" placeholder="e.g. -2 (page number)">
-  <p>Copy and paste output in your discord</p>
   <button onclick="runCommand()">Run</button>
+  <button onclick="copyOutput()">Copy</button>
 </p>
-
+<p>Copy and paste output in your discord</p>
 <pre id="output">Enter arguments above (or leave blank) and press Run.</pre>
 
 <script>
@@ -28,6 +28,19 @@ async function runCommand() {
   } catch (err) {
     output.textContent = "❌ Error: " + err.message;
   }
+}
+
+function copyOutput() {
+  const output = document.getElementById('output');
+  navigator.clipboard.writeText(output.textContent).then(() => {
+    const originalText = output.textContent;
+    output.textContent = "Copied to clipboard!";
+    setTimeout(() => {
+      output.textContent = originalText;
+    }, 800);
+  }).catch(err => {
+    alert("Failed to copy: " + err.message);
+  });
 }
 
 async function handleCommand(args) {
@@ -148,22 +161,43 @@ const now =
   Date.now();
 
 const countryFlags = {
-  AT: "AT", AU: "AU", BE: "BE", BR: "BR", CA: "CA",
-  CH: "CH", CN: "CN", CZ: "CZ", DE: "DE", DK: "DK",
-  ES: "ES", FI: "FI", FR: "FR", HK: "HK", HU: "HU",
-  IE: "IE", IN: "IN", IT: "IT", JP: "JP", KR: "KR",
-  MX: "MX", NL: "NL", NO: "NO", NZ: "NZ", PL: "PL",
-  PT: "PT", SE: "SE", SG: "SG", SK: "SK", UK: "UK",
-  US: "US", VN: "VN"
+  AT: ":flag_at:",
+  AU: ":flag_au:",
+  BE: ":flag_be:",
+  BR: ":flag_br:",
+  CA: ":flag_ca:",
+  CH: ":flag_ch:",
+  CN: ":flag_cn:",
+  CZ: ":flag_cz:",
+  DE: ":flag_de:",
+  DK: ":flag_dk:",
+  ES: ":flag_es:",
+  FI: ":flag_fi:",
+  FR: ":flag_fr:",
+  HK: ":flag_hk:",
+  HU: ":flag_hu:",
+  IE: ":flag_ie:",
+  IN: ":flag_in:",
+  IT: ":flag_it:",
+  JP: ":flag_jp:",
+  KR: ":flag_kr:",
+  MX: ":flag_mx:",
+  NL: ":flag_nl:",
+  NO: ":flag_no:",
+  NZ: ":flag_nz:",
+  PL: ":flag_pl:",
+  PT: ":flag_pt:",
+  SE: ":flag_se:",
+  SG: ":flag_sg:",
+  SK: ":flag_sk:",
+  UK: ":flag_gb:",
+  US: ":flag_us:",
+  VN: ":flag_vn:"
 };
 
 /* PAGE */
 
-const input = String(
-  Array.isArray(args)
-    ? args.join(" ")
-    : args || ""
-).trim();
+const input = String(args || "").trim();
 
 let page = 1;
 
@@ -298,7 +332,7 @@ for(const quest of regionalQuests){
     .map(
       r =>
       countryFlags[r] ||
-      r
+      `\`${r}\``
     )
     .join(" ");
 
@@ -307,7 +341,7 @@ for(const quest of regionalQuests){
     .map(
       r =>
       countryFlags[r] ||
-      r
+      `\`${r}\``
     )
     .join(" ");
 
@@ -405,13 +439,13 @@ const shownEnd =
 /* OUTPUT */
 
 let output =
-"Region-Restricted Quests\n\n";
+"<:Discovery:960579493205012521> **Region-Restricted Quests**\n\n";
 
 output +=
   pageItems.join("");
 
 output +=
-`\n( Page ${page}/${totalPages} • Showing ${shownStart}-${shownEnd} of ${regionalQuests.length} quests )`;
+`\n*( Page ${page}/${totalPages} • Showing ${shownStart}-${shownEnd} of ${regionalQuests.length} quests )*`;
 
 return output.trim();
 
