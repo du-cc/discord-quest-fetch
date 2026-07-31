@@ -9,7 +9,7 @@
 <p>
   <input id="argsInput" type="text" size="60" placeholder="e.g. -2 (page number)">
   <button onclick="runCommand()">Run</button>
-  <button onclick="copyOutput()">Copy</button>
+  <button onclick="copyOutput(event)">Copy</button>
 </p>
 <p>Copy and paste output in your discord</p>
 <pre id="output">Enter arguments above (or leave blank) and press Run.</pre>
@@ -30,17 +30,21 @@ async function runCommand() {
   }
 }
 
-function copyOutput() {
-  const output = document.getElementById('output');
-  navigator.clipboard.writeText(output.textContent).then(() => {
-    const originalText = output.textContent;
-    output.textContent = "Copied to clipboard!";
-    setTimeout(() => {
-      output.textContent = originalText;
-    }, 800);
-  }).catch(err => {
-    alert("Failed to copy: " + err.message);
-  });
+function copyOutput(e) {
+  const text = document.getElementById('output').textContent;
+  const btn = e.target;
+  const original = btn.textContent;
+
+  const done = () => {
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = original; }, 1200);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
 }
 
 async function handleCommand(args) {
