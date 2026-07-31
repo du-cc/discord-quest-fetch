@@ -11,7 +11,6 @@ const LATEST_COUNT = 50;
 async function main() {
   const res = await fetch(SOURCE_URL, {
     headers: {
-      // avoid any caching layer serving stale content
       "Cache-Control": "no-cache",
     },
   });
@@ -30,15 +29,12 @@ async function main() {
 
   const latest = data.slice(-LATEST_COUNT).reverse();
 
-  const output = {
-    source: SOURCE_URL,
-    updated_at: new Date().toISOString(),
-    count: latest.length,
-    quests: latest,
-  };
-
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n", "utf8");
+  await writeFile(
+    OUTPUT_PATH,
+    JSON.stringify(latest, null, 2) + "\n",
+    "utf8"
+  );
 
   console.log(`Wrote ${latest.length} quests to ${OUTPUT_PATH}`);
 }
