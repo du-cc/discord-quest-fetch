@@ -4,7 +4,7 @@ import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const SOURCE_URL =
-  "https://raw.githubusercontent.com/xGustavvo/discord-api-tracker/refs/heads/main/quests.json";
+  "https://raw.githubusercontent.com/aamiaa/discord-api-diff/refs/heads/main/quests.json";
 const OUTPUT_PATH = path.join("data", "quests.json");
 const LATEST_COUNT = 100;
 
