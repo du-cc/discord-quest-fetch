@@ -1,4 +1,4 @@
-name: Update  Quests
+name: Update Quests
 
 on:
   schedule:
@@ -15,6 +15,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,12 +28,20 @@ jobs:
       - name: Fetch latest 100 quests from upstream
         run: node update.mjs
 
+      - name: Import GPG key
+        id: import-gpg
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
       - name: Commit and push if the file changed
         uses: stefanzweifel/git-auto-commit-action@v5
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit_message: "chore: sync latest quests from upstream source"
           file_pattern: data/quests.json
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "${{ steps.import-gpg.outputs.name }} <${{ steps.import-gpg.outputs.email }}>"
+          commit_user_name: "${{ steps.import-gpg.outputs.name }}"
+          commit_user_email: "${{ steps.import-gpg.outputs.email }}"
