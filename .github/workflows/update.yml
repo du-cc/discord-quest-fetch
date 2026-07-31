@@ -25,7 +25,7 @@ jobs:
           node-version: "20"
 
       - name: Fetch latest 100 quests from upstream
-        run: node scripts/update.mjs
+        run: node update.mjs
 
       - name: Commit and push if the file changed
         uses: stefanzweifel/git-auto-commit-action@v5
