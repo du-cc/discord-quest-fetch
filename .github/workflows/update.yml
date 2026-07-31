@@ -29,6 +29,8 @@ jobs:
 
       - name: Commit and push if the file changed
         uses: stefanzweifel/git-auto-commit-action@v5
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit_message: "chore: sync latest quests from upstream source"
           file_pattern: data/quests.json
