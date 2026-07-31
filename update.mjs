@@ -6,7 +6,7 @@ import path from "node:path";
 const SOURCE_URL =
   "https://raw.githubusercontent.com/aamiaa/discord-api-diff/refs/heads/main/quests.json";
 const OUTPUT_PATH = path.join("data", "quests.json");
-const LATEST_COUNT = 100;
+const LATEST_COUNT = 50;
 
 async function main() {
   const res = await fetch(SOURCE_URL, {
