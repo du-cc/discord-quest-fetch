@@ -854,7 +854,7 @@ let finalText =
   pageItems.map(p => p.text).join("\n\n");
 
 finalText +=
-  `\n\n*( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )*\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t questweb\` for complete data.`;
+  `\n\n*( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )*\nOnly latest 40 quests are fetched. Use \`-t questweb\` for complete data.`;
 
 return finalText;
 
