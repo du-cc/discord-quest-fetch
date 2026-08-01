@@ -260,7 +260,7 @@ if(
   !regionalQuests.length
 ){
 
-  return "No active region-restricted quests found.";
+  return "No active region-restricted quests found.\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t regionweb\` for complete data";
 
 }
 
@@ -367,7 +367,7 @@ if(
   totalPages
 ){
 
-  return `❌ Page ${page} does not exist. Max page: ${totalPages}.`;
+  return `❌ Page ${page} does not exist. Max page: ${totalPages}.\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t regionweb\` for complete data`;
 
 }
 
@@ -405,13 +405,13 @@ output +=
   pageItems.join("");
 
 output +=
-`\n*( Page ${page}/${totalPages} • Showing ${shownStart}-${shownEnd} of ${regionalQuests.length} quests )*`;
+`\n*( Page ${page}/${totalPages} • Showing ${shownStart}-${shownEnd} of ${regionalQuests.length} quests )*\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t regionweb\` for complete data`;
 
 return output.trim();
 
 }catch(e){
 
-return `❌ Error fetching quest data.\n${e}`;
+return `❌ Error fetching quest data.\n${e}\nuse \`-t regionweb\``;
 
 }
 
