@@ -1,5 +1,101 @@
 [
   {
+    "id": "1527502945875263548",
+    "config": {
+      "id": "1527502945875263548",
+      "config_version": 2,
+      "starts_at": "2026-08-01T07:00:00+00:00",
+      "expires_at": "2026-08-20T06:59:00+00:00",
+      "features": [
+        15
+      ],
+      "application": {
+        "link": "https://store.steampowered.com/app/3564740/480?utm_source=DiscordOrbs",
+        "id": "1437509662303059998",
+        "name": "Where Winds Meet"
+      },
+      "assets": {
+        "hero": "quests/1527502945875263548/1528577107901546698.jpg",
+        "hero_video": "quests/1527502945875263548/1527532419362586634_720.mp4",
+        "quest_bar_hero_blurhash": "CfgFDIAGuWV7hnmEeIV2b3f3tw==",
+        "quest_bar_hero": "quests/1527502945875263548/1527532359845675059.jpg",
+        "quest_bar_hero_video": "quests/1527502945875263548/1527532402396889220_720.mp4",
+        "game_tile": "PLACEHOLDER",
+        "logotype": "PLACEHOLDER",
+        "game_tile_light": "quests/1527502945875263548/1527507273658667068.png",
+        "game_tile_dark": "quests/1527502945875263548/1527507273658667068.png",
+        "logotype_light": "quests/1527502945875263548/1527507273570848781.png",
+        "logotype_dark": "quests/1527502945875263548/1527507273570848781.png"
+      },
+      "colors": {
+        "primary": "#4752C4",
+        "secondary": "#000000"
+      },
+      "messages": {
+        "quest_name": "Where Winds Meet 2.0 Wuxia New Era",
+        "game_title": "Where Winds Meet",
+        "game_publisher": "NETEASE"
+      },
+      "task_config_v2": {
+        "tasks": {
+          "PLAY_ON_DESKTOP": {
+            "type": "PLAY_ON_DESKTOP",
+            "target": 900,
+            "applications": [
+              {
+                "id": "1437509662303059998"
+              }
+            ]
+          },
+          "PLAY_ON_PLAYSTATION": {
+            "type": "PLAY_ON_PLAYSTATION",
+            "target": 900,
+            "applications": [
+              {
+                "id": "1437509662303059998"
+              }
+            ],
+            "external_ids": [
+              "PPSA23355_00"
+            ]
+          }
+        },
+        "join_operator": "or"
+      },
+      "rewards_config": {
+        "assignment_method": 1,
+        "rewards": [
+          {
+            "type": 4,
+            "sku_id": "1287881739531976815",
+            "messages": {
+              "name": "700 Orbs",
+              "name_with_article": "700 Orbs",
+              "redemption_instructions_by_platform": {
+                "0": "PLACEHOLDER"
+              }
+            },
+            "orb_quantity": 700,
+            "premium_orb_quantity": 840
+          }
+        ],
+        "rewards_expire_at": "2026-09-19T06:59:00+00:00",
+        "platforms": [
+          0
+        ]
+      },
+      "share_policy": "shareable_everywhere",
+      "cta_config": {
+        "link": "https://store.steampowered.com/app/3564740/480?utm_source=DiscordOrbs",
+        "button_label": "Play Now"
+      }
+    },
+    "user_status": null,
+    "targeted_content": [],
+    "preview": false,
+    "traffic_metadata_raw": "EAIYAQ=="
+  },
+  {
     "id": "1532170700591206410",
     "config": {
       "id": "1532170700591206410",
@@ -4381,137 +4477,6 @@
         "link": "https://othermommymovie.com/",
         "button_label": "Learn More",
         "subtitle": "In Theaters October 9, 2026"
-      }
-    },
-    "user_status": null,
-    "targeted_content": [],
-    "preview": false,
-    "traffic_metadata_raw": "EAIYAQ=="
-  },
-  {
-    "id": "1526986140928708638",
-    "config": {
-      "id": "1526986140928708638",
-      "config_version": 2,
-      "starts_at": "2026-07-21T17:00:00+00:00",
-      "expires_at": "2026-08-04T00:00:00+00:00",
-      "features": [
-        15
-      ],
-      "application": {
-        "link": "https://ad.doubleclick.net/ddm/trackclk/N7657.3866164DISCORD.COM/B36324648.451845807;dc_trk_aid=645326018;dc_trk_cid=259469953;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1",
-        "id": "545364944258990091",
-        "name": "Discord"
-      },
-      "assets": {
-        "hero": "quests/1526986140928708638/1527414373013000393.jpg",
-        "quest_bar_hero_blurhash": "0fcFJIg1BofXWGjIN1pRcQAGGA==",
-        "quest_bar_hero": "quests/1526986140928708638/1527414372975120577.jpg",
-        "game_tile": "PLACEHOLDER",
-        "logotype": "PLACEHOLDER",
-        "game_tile_light": "quests/1526986140928708638/1527414417799647232.png",
-        "game_tile_dark": "quests/1526986140928708638/1527414417799647232.png",
-        "logotype_light": "quests/1526986140928708638/1527414417606578288.png",
-        "logotype_dark": "quests/1526986140928708638/1527414417745252604.png"
-      },
-      "colors": {
-        "primary": "#4752C4",
-        "secondary": "#000000"
-      },
-      "messages": {
-        "quest_name": "Battlefield 6 Season 4 Trailer",
-        "game_title": "Battlefield",
-        "game_publisher": "Electronic Arts"
-      },
-      "task_config_v2": {
-        "tasks": {
-          "WATCH_VIDEO": {
-            "type": "WATCH_VIDEO",
-            "target": 29,
-            "assets": {
-              "video": {
-                "url": "quests/1526986140928708638/1527414373381832855_1080.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              },
-              "video_low_res": {
-                "url": "quests/1526986140928708638/1527414373381832855_720.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              },
-              "video_hls": {
-                "url": "quests/1526986140928708638/1527414373381832855.m3u8",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              }
-            },
-            "messages": {
-              "video_title": "PLACEHOLDER"
-            }
-          },
-          "WATCH_VIDEO_ON_MOBILE": {
-            "type": "WATCH_VIDEO_ON_MOBILE",
-            "target": 29,
-            "assets": {
-              "video": {
-                "url": "quests/1526986140928708638/1527414373381832855_1080.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              },
-              "video_low_res": {
-                "url": "quests/1526986140928708638/1527414373381832855_720.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              },
-              "video_hls": {
-                "url": "quests/1526986140928708638/1527414373381832855.m3u8",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1526986140928708638/1527806575173959810.jpg"
-              }
-            },
-            "messages": {
-              "video_title": "PLACEHOLDER"
-            }
-          }
-        },
-        "join_operator": "or"
-      },
-      "rewards_config": {
-        "assignment_method": 1,
-        "rewards": [
-          {
-            "type": 3,
-            "sku_id": "1528925852564193421",
-            "asset": "quests/1526986140928708638/1528925969136750673.mp4",
-            "asset_video": null,
-            "messages": {
-              "name": "BF Flight Helmet",
-              "name_with_article": "a BF Flight Helmet",
-              "redemption_instructions_by_platform": {
-                "0": "PLACEHOLDER"
-              }
-            },
-            "expires_at": "2026-10-03T00:00:00+00:00",
-            "expires_at_premium": null,
-            "expiration_mode": 3
-          }
-        ],
-        "rewards_expire_at": "2026-09-03T00:00:00+00:00",
-        "platforms": [
-          0
-        ]
-      },
-      "share_policy": "shareable_everywhere",
-      "cta_config": {
-        "link": "https://ad.doubleclick.net/ddm/trackclk/N7657.3866164DISCORD.COM/B36324648.451845807;dc_trk_aid=645326018;dc_trk_cid=259469953;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1",
-        "button_label": "Play Game",
-        "subtitle": "Naval warfare returns in Season 4. Play Now."
       }
     },
     "user_status": null,
