@@ -618,7 +618,7 @@ if(
 /* LISTING */
 
 if(!filtered.length)
-  return "❌ No quests found.";
+  return "❌ No quests found.\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t questweb\` for complete data";
 
 const totalCount = filtered.length;
 
@@ -831,7 +831,7 @@ const totalPages = pages.length;
 
 if(page > totalPages){
 
-  return `❌ Page ${page} does not exist. Max page: ${totalPages}.`;
+  return `❌ Page ${page} does not exist. Max page: ${totalPages}.\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t questweb\` for complete data.`;
 
 }
 
@@ -854,13 +854,13 @@ let finalText =
   pageItems.map(p => p.text).join("\n\n");
 
 finalText +=
-  `\n\n*( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )*`;
+  `\n\n*( Page ${page}/${totalPages} • Showing ${start}-${end} of ${totalCount} quests )*\nOnly latest 40 quests are fetched (bot can't handle more than that). Use \`-t questweb\` for complete data.`;
 
 return finalText;
 
 }catch{
 
-return "❌ Error fetching or processing quests.";
+return "❌ Error fetching or processing quests. use \`-t questweb\`";
 
 }
 
