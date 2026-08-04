@@ -1,5 +1,83 @@
 [
   {
+    "id": "1533861934078890124",
+    "config": {
+      "id": "1533861934078890124",
+      "config_version": 2,
+      "starts_at": "2026-08-03T18:58:00+00:00",
+      "expires_at": "2026-08-17T00:00:00+00:00",
+      "features": [
+        15
+      ],
+      "application": {
+        "link": "https://store.steampowered.com/app/3751950/Assassins_Creed_Black_Flag_Resynced/",
+        "id": "1499976477939077171",
+        "name": "Assassin's Creed Black Flag Resynced"
+      },
+      "assets": {
+        "hero": "quests/1523842681770475550/1533860382362304553.jpg",
+        "quest_bar_hero_blurhash": "3PcNJIhEaWl/ioh8hnhmYGUGVg==",
+        "quest_bar_hero": "quests/1523842681770475550/1533860382458777641.jpg",
+        "game_tile": "PLACEHOLDER",
+        "logotype": "PLACEHOLDER",
+        "game_tile_light": "quests/1523842681770475550/1533860382383411481.png",
+        "game_tile_dark": "quests/1523842681770475550/1533860382383411481.png",
+        "logotype_light": "quests/1523842681770475550/1533860382857494688.png",
+        "logotype_dark": "quests/1523842681770475550/1533860382500982824.png"
+      },
+      "colors": {
+        "primary": "#4752C4",
+        "secondary": "#000000"
+      },
+      "messages": {
+        "quest_name": "AC Black Flag Resynced",
+        "game_title": "Assassin's Creed Black Flag Resynced",
+        "game_publisher": "Ubisoft"
+      },
+      "task_config_v2": {
+        "tasks": {
+          "PLAY_ON_DESKTOP": {
+            "type": "PLAY_ON_DESKTOP",
+            "target": 900,
+            "applications": [
+              {
+                "id": "1499976477939077171"
+              }
+            ]
+          }
+        },
+        "join_operator": "or"
+      },
+      "rewards_config": {
+        "assignment_method": 1,
+        "rewards": [
+          {
+            "type": 4,
+            "sku_id": "1287881739531976815",
+            "messages": {
+              "name": "700 Orbs",
+              "name_with_article": "700 Orbs",
+              "redemption_instructions_by_platform": {
+                "0": "PLACEHOLDER"
+              }
+            },
+            "orb_quantity": 700,
+            "premium_orb_quantity": null
+          }
+        ],
+        "rewards_expire_at": "2026-09-16T00:00:00+00:00",
+        "platforms": [
+          0
+        ]
+      },
+      "share_policy": "shareable_everywhere",
+      "cta_config": {
+        "link": "https://store.steampowered.com/app/3751950/Assassins_Creed_Black_Flag_Resynced/",
+        "button_label": "Play Game"
+      }
+    }
+  },
+  {
     "id": "1523842681770475550",
     "config": {
       "id": "1523842681770475550",
@@ -4306,129 +4384,6 @@
       "cta_config": {
         "link": "https://game.ea.com/redirect?campaignName=GLA_MF_EU_WPP_DIRD_DIS_S4&caudience=C3-AFFINITY&ccreative=GLA-LS-S4KEYART",
         "button_label": "Play Game"
-      }
-    }
-  },
-  {
-    "id": "1529582099084869642",
-    "config": {
-      "id": "1529582099084869642",
-      "config_version": 2,
-      "starts_at": "2026-07-22T04:00:00+00:00",
-      "expires_at": "2026-07-24T05:00:00+00:00",
-      "features": [
-        15
-      ],
-      "application": {
-        "link": "https://discord.com/store",
-        "id": "545364944258990091",
-        "name": "Discord"
-      },
-      "assets": {
-        "hero": "quests/1529582099084869642/1529582517303251066.jpg",
-        "quest_bar_hero_blurhash": "X3YKDIQGiGeIh4iCeYUBlrNDBQ==",
-        "quest_bar_hero": "quests/1529582099084869642/1529582517303115927.jpg",
-        "game_tile": "PLACEHOLDER",
-        "logotype": "PLACEHOLDER",
-        "game_tile_light": "quests/1529582099084869642/1529582517219364955.png",
-        "game_tile_dark": "quests/1529582099084869642/1529582517219364955.png",
-        "logotype_light": "quests/1529582099084869642/1529582517278216303.png",
-        "logotype_dark": "quests/1529582099084869642/1529582517278216303.png"
-      },
-      "colors": {
-        "primary": "#4752C4",
-        "secondary": "#000000"
-      },
-      "messages": {
-        "quest_name": "Nitro",
-        "game_title": "Nitro",
-        "game_publisher": "Discord"
-      },
-      "task_config_v2": {
-        "tasks": {
-          "WATCH_VIDEO": {
-            "type": "WATCH_VIDEO",
-            "target": 43,
-            "assets": {
-              "video": {
-                "url": "quests/1529582099084869642/1529582517232079070_1080.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              },
-              "video_low_res": {
-                "url": "quests/1529582099084869642/1529582517232079070_720.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              },
-              "video_hls": {
-                "url": "quests/1529582099084869642/1529582517232079070.m3u8",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              }
-            },
-            "messages": {
-              "video_title": ""
-            }
-          },
-          "WATCH_VIDEO_ON_MOBILE": {
-            "type": "WATCH_VIDEO_ON_MOBILE",
-            "target": 43,
-            "assets": {
-              "video": {
-                "url": "quests/1529582099084869642/1529582517232079070_1080.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              },
-              "video_low_res": {
-                "url": "quests/1529582099084869642/1529582517232079070_720.mp4",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              },
-              "video_hls": {
-                "url": "quests/1529582099084869642/1529582517232079070.m3u8",
-                "width": 1920,
-                "height": 1080,
-                "thumbnail": "quests/1529582099084869642/1529582517294727198.png"
-              }
-            },
-            "messages": {
-              "video_title": ""
-            }
-          }
-        },
-        "join_operator": "or"
-      },
-      "rewards_config": {
-        "assignment_method": 1,
-        "rewards": [
-          {
-            "type": 4,
-            "sku_id": "1287881739531976815",
-            "messages": {
-              "name": "200 Orbs",
-              "name_with_article": "200 Orbs",
-              "redemption_instructions_by_platform": {
-                "0": "PLACEHOLDER"
-              }
-            },
-            "orb_quantity": 200,
-            "premium_orb_quantity": 240
-          }
-        ],
-        "rewards_expire_at": "2026-08-23T05:00:00+00:00",
-        "platforms": [
-          0
-        ]
-      },
-      "share_policy": "shareable_everywhere",
-      "cta_config": {
-        "link": "https://discord.com/store",
-        "button_label": "Learn More"
       }
     }
   }
